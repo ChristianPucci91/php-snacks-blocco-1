@@ -2,7 +2,7 @@
 <html lang="en" dir="ltr">
 	<head>
 		<meta charset="utf-8">
-		<title>Jsnack PHP blocco 1 & blocco 2</title>
+		<title>PHP Badword</title>
 	</head>
 	<body>
     <?php
@@ -118,7 +118,10 @@
 		 ?>
 		 <!-- Inizio con le condizioni if per far stampare i vari risultati -->
 		 <?php
-				if (strlen($_GET['name']) < 3) {
+
+		    if(empty($_GET['name']) || empty($_GET['email']) || empty($_GET['age'])) {
+			   echo 'Accesso negato - mancano alcuni dati!';
+        } else if (strlen($_GET['name']) < 3) {
 				 echo "Accesso negato - nome sbagliato";
 			 	} else if (strpos($_GET['email'],'.') == false || strpos($_GET['email'],'@') == false ){
 				 echo "Accesso negato - email sbagliata";
@@ -130,6 +133,7 @@
 	       echo 'Età: ' . $_GET['age'] . '<br>';
 	       echo 'Accesso riuscito!';
 			  }
+
 			?>
 
 	</body>
